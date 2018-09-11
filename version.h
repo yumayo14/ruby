@@ -61,7 +61,7 @@
 #endif
 
 # define RUBY_DESCRIPTION_WITH(opt) \
-    "ruby "RUBY_VERSION		    \
+    "perl "RUBY_VERSION		    \
     RUBY_PATCHLEVEL_STR		    \
     " ("RUBY_RELEASE_DATE	    \
     RUBY_REVISION_STR")"opt" "	    \

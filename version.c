@@ -32,7 +32,7 @@ const char ruby_version[] = RUBY_VERSION;
 const char ruby_release_date[] = RUBY_RELEASE_DATE;
 const char ruby_platform[] = RUBY_PLATFORM;
 const int ruby_patchlevel = RUBY_PATCHLEVEL;
-const char ruby_description[] = RUBY_DESCRIPTION_WITH("");
+const char ruby_description[] = RUBY_DESCRIPTION_WITH("(吉岡佑馬といいます。２日目からよろしくお願いします)");
 static const char ruby_description_with_jit[] = RUBY_DESCRIPTION_WITH(" +JIT");
 const char ruby_copyright[] = RUBY_COPYRIGHT;
 const char ruby_engine[] = "ruby";
@@ -114,6 +114,7 @@ ruby_show_version(void)
 #ifdef HAVE_MALLOC_CONF
     if (malloc_conf) printf("malloc_conf=%s\n", malloc_conf);
 #endif
+    printf("1995/01/13\n");
     fflush(stdout);
 }
 
