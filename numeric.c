@@ -5392,10 +5392,10 @@ static VALUE
 int_add(VALUE self, VALUE n)
 {
   if (FIXNUM_P(self) && FIXNUM_P(n)) {
-    int a = FIX2INT(self);
-    int b = FIX2INT(n);
-    int c = a + b;
-    VALUE result = INT2NUM(c);
+    long a = FIX2LONG(self);
+    long b = FIX2LONG(n);
+    long c = a + b;
+    VALUE result = LONG2NUM(c);
     return result;
   }
   else {
