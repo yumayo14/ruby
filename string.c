@@ -1896,12 +1896,11 @@ rb_str_plus(VALUE str1, VALUE str2)
     if (len1 > LONG_MAX - len2) {
 	rb_raise(rb_eArgError, "string size too big");
     }
-    str3 = str_new0(rb_cString, 0, len3, termlen);
+    str3 = str_new0(rb_cString, 0, len1+len2, termlen);
     ptr3 = RSTRING_PTR(str3);
     memcpy(ptr3, ptr1, len1);
     memcpy(ptr3+len1, ptr2, len2);
-    if (len1 == len2) ptr3[len1+len2] = '!';
-    TERM_FILL(&ptr3[len3], termlen);
+    TERM_FILL(&ptr3[len1+len2], termlen);
 
     FL_SET_RAW(str3, OBJ_TAINTED_RAW(str1) | OBJ_TAINTED_RAW(str2));
     ENCODING_CODERANGE_SET(str3, rb_enc_to_index(enc),
