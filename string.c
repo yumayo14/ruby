@@ -1883,7 +1883,7 @@ rb_str_plus(VALUE str1, VALUE str2)
     VALUE str3;
     rb_encoding *enc;
     char *ptr1, *ptr2, *ptr3;
-    long len1, len2;
+    long len1, len2, len3;
     int termlen;
 
     StringValue(str2);
@@ -1891,6 +1891,8 @@ rb_str_plus(VALUE str1, VALUE str2)
     RSTRING_GETMEM(str1, ptr1, len1);
     RSTRING_GETMEM(str2, ptr2, len2);
     termlen = rb_enc_mbminlen(enc);
+    len3 = len1+len2;
+    if (len1 == len2) len3++;
     if (len1 > LONG_MAX - len2) {
 	rb_raise(rb_eArgError, "string size too big");
     }
